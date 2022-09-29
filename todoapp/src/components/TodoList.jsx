@@ -4,24 +4,26 @@ const ToDoList = (props) => {
   return (
     <>
       <div className="list_style">
+        <div className="dekho">
         <input
           type="radio"
-          id="radio"
+          className="radio"
           name="radio"
-          
-          // onChange={() => {
-          //  props.onRadio(props.id)
-          //   }}
+          onChange={() => {
+            alert("Task Completed");
+            alert("Click Delete button on right side to delete your Task");
+          }}
         />
         <li>{props.text}</li>
         <button
-          id="button2"
+          className="button2"
           onClick={() => {
             props.onSelect(props.id);
           }}
         >
-          x
+          X
         </button>
+        </div>
       </div>
     </>
   );

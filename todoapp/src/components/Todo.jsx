@@ -6,7 +6,7 @@ import ToDoList from "./TodoList";
 const Todo = () => {
   const [list, setlist] = useState("");
   const [Items, setItems] = useState([]);
-  
+
 
   const Events = (event) => {
     setlist(event.target.value);
@@ -30,12 +30,14 @@ const Todo = () => {
   };
 
   const deleteItems = (id) =>{
+    alert("Your Task Removed")
     setItems((ArrayItem) => {
       return ArrayItem.filter((Element,index) => {
         return index !== id;
       })
     })
   }
+
 
   return (
     <>
@@ -50,17 +52,12 @@ const Todo = () => {
             onChange={Events}
             value={list}
           />
-          <button onClick={Itemslist}>+</button>
+          <button className="AddButton" onClick={Itemslist}>+</button>
 
           {Items.map((ValueOfItems, index) => {
-            return <ToDoList key={index} id={index} text={ValueOfItems} onSelect={deleteItems} />;
+            return <ToDoList key={index} id={index} text={ValueOfItems}  onSelect={deleteItems}  />;
           })}
-{/* 
-          {Items.map((ValueOfItems, index) => {
-            return <ToDoList key={index} id={Items.id} task = {ValueOfItems} onRadio = {Change} />
-          })
 
-          } */}
          
         </div>
       </div>
